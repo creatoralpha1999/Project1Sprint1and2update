@@ -26,7 +26,9 @@ Route::get('/loggedin', function () {
     return view('loggedin');
 })->name('loggedin');
 Route::post('/login', 'Authcontroller@login');
-Route::post('/register','Authcontroller@register');
+Route::get('add-a-property', 'PropertyController@addAProperty')->name('addAProperty');
+Route::post('/register', 'Authcontroller@register');
 // Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('property', 'PropertyController');
