@@ -20,29 +20,40 @@
     </header>
     <link rel="stylesheet" type="text/css" href="{{asset('css/home.css')}}" />
 
-    <nav>
-        <ul>
-            <div class="navbar">
-                <li><a href="{{url('/')}}">Home</a></li>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-                <div class="dropdown">
-                    <button class="dropbtn">Current Listing
-                        <i class="fa fa-caret-down"></i>
-                    </button>
-                    <div class="dropdown-content">
-                        <a href="propertiesonrent.html">Properties on Rent</a>
-                        <a href="propertiesonsale.html">Properties on Sale</a>
-
-                    </div>
-                </div>
-
-                <li><a href="services.html"><span>Services</span></a></li>
-                <li><a href="aboutus.html"><span>About Us</span></a></li>
-                <li><a href="{{url('register')}}"><span>Register</span></a></li>
-                <li><a href="{{url('login')}}"><span>Login</span></a></li>
-                <li class="last"><a href="contact.html"><span>Contact Us</span></a></li>
-        </ul>
-    </nav>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{{url('/')}}">Home <span class="sr-only">(current)</span></a>
+      </li>
+	  <li class="nav-item active">
+        <a class="nav-link" href="{{url('properties')}}">Properties <span class="sr-only">(current)</span></a>
+      </li>
+	  <li class="nav-item active">
+        <a class="nav-link" href="aboutus.html">About Us <span class="sr-only">(current)</span></a>
+      </li>
+	  
+	  <li class="nav-item active">
+        <a class="nav-link" href="{{url('register')}}">Register <span class="sr-only">(current)</span></a>
+      </li>
+	  <li class="nav-item active">
+        <a class="nav-link" href="{{url('login')}}">Login <span class="sr-only">(current)</span></a>
+      </li>
+	  <li class="nav-item active">
+        <a class="nav-link" href="contact.html">Contact Us <span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
     <br>
 
     @if(session()->has('flash_success'))

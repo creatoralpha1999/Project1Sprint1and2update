@@ -36,7 +36,7 @@
             <input type="file" name="image" id="fileToUpload">
             <br>
             <br>
-            <input type="submit" value="Upload Image" name="submit">
+            
 
             <hr>
 
