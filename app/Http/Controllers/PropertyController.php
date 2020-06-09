@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Property;
+use App\RequestProperty;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -31,5 +32,16 @@ class PropertyController extends Controller
     public function addAProperty()
     {
         return view('add_property');
+    }
+    public function requestProperty($id, Request $request)
+    {
+        $property = Property::find($id);
+        return view('request_property')->with('property', $property);
+    }
+
+    public function postRequestProperty(Request $request)
+    {
+        $req = RequestProperty::create($request->all());
+        return redirect()->route('property.index');
     }
 }

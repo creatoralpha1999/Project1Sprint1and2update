@@ -1,5 +1,6 @@
 <?php
 
+use App\RequestProperty;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,7 +24,8 @@ Route::get('/register', function () {
     return view('register');
 });
 Route::get('/loggedin', function () {
-    return view('loggedin');
+    $properties = RequestProperty::where('owner_id', auth()->user()->id)->orderBy('created_at', 'DESC')->get();
+    return view('loggedin')->with('properties', $properties);
 })->name('loggedin');
 Route::post('/login', 'Authcontroller@login');
 Route::get('add-a-property', 'PropertyController@addAProperty')->name('addAProperty');
@@ -32,3 +34,5 @@ Route::post('/register', 'Authcontroller@register');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('property', 'PropertyController');
+Route::get('request-property/{id}', 'PropertyController@requestProperty')->name('request-property');
+Route::post('request-property', 'PropertyController@postRequestProperty')->name('post-request-property');

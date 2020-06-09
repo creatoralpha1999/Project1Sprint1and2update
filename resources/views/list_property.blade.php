@@ -11,7 +11,8 @@
                     <h5 class="card-title">{{$property->title}}</h5>
                     <p class="card-text">{{$property->description}}</p>
                     <p class="card-text">Price:: {{$property->price}}</p>
-                    <a href="#" class="btn btn-block btn-primary">Request Property</a>
+                    <a href="{{route('request-property',['id'=>$property->id])}}"
+                        class="btn btn-block btn-primary">Request Property</a>
                 </div>
             </div>
         </div>
